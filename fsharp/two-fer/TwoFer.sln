@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TwoFer", "TwoFer.fsproj", "{037FE08E-6506-46E4-9E15-67F9709D010F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{037FE08E-6506-46E4-9E15-67F9709D010F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{037FE08E-6506-46E4-9E15-67F9709D010F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{037FE08E-6506-46E4-9E15-67F9709D010F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{037FE08E-6506-46E4-9E15-67F9709D010F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
