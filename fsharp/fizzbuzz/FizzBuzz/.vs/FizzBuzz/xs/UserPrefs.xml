@@ -1,14 +1,15 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="TwoFer.fs">
+﻿<Properties StartupConfiguration="{3D1CBFE3-6816-468D-B450-ACA392737D64}|Default">
+  <MonoDevelop.Ide.ItemProperties.FizzBuzz FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FizzBuzz/Program.fs">
     <Files>
-      <File FileName="TwoFer.fs" Line="8" Column="1" />
+      <File FileName="FizzBuzz/Program.fs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="TwoFer" expanded="True">
-            <Node name="TwoFer" expanded="True">
-              <Node name="TwoFer.fs" selected="True" />
+          <Node name="FizzBuzz" expanded="True">
+            <Node name="FizzBuzz" expanded="True">
+              <Node name="Program.fs" selected="True" />
             </Node>
           </Node>
         </State>
