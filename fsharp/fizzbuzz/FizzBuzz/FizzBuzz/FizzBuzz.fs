@@ -2,7 +2,11 @@
 
 open System
 
-[<EntryPoint>]
-let main argv =
-    printfn "Hello World from F#!"
-    0 // return an integer exit code
+[1..100]
+|> List.map (fun x -> 
+match (x % 3, x % 5) with 
+| (0,0) -> "FizzBuzz"
+| (0,_) -> "Fizz"
+| (0,_) -> "Buzz"
+| (_,_) -> x |> string
+)
