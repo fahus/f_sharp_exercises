@@ -1,15 +1,15 @@
 ﻿<Properties StartupConfiguration="{E409C884-FCE9-4ACF-9977-35F3D3B92CB2}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="LeapTests.fs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Leap.fs">
     <Files>
-      <File FileName="Leap.fs" Line="5" Column="9" />
-      <File FileName="LeapTests.fs" Line="1" Column="1" />
+      <File FileName="Leap.fs" Line="8" Column="27" />
+      <File FileName="LeapTests.fs" Line="14" Column="8" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Leap" expanded="True">
             <Node name="Leap" expanded="True">
-              <Node name="LeapTests.fs" selected="True" />
+              <Node name="Leap.fs" selected="True" />
             </Node>
           </Node>
         </State>
