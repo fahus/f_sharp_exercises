@@ -1,0 +1,59 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/fhussein/f_sharp_practice/HelloSquare/HelloSquare/HelloSquare.fsproj": {}
+  },
+  "projects": {
+    "/Users/fhussein/f_sharp_practice/HelloSquare/HelloSquare/HelloSquare.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/fhussein/f_sharp_practice/HelloSquare/HelloSquare/HelloSquare.fsproj",
+        "projectName": "HelloSquare",
+        "projectPath": "/Users/fhussein/f_sharp_practice/HelloSquare/HelloSquare/HelloSquare.fsproj",
+        "packagesPath": "/Users/fhussein/.nuget/packages/",
+        "outputPath": "/Users/fhussein/f_sharp_practice/HelloSquare/HelloSquare/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/fhussein/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "FSharp.Core": {
+              "target": "Package",
+              "version": "[4.5.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.102/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
