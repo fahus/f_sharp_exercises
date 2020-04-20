@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{6EB24E55-BD47-4685-98B3-89B25085694B}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../Exercism/fsharp/two-fer/TwoFerTests.fs">
+    <Files>
+      <File FileName="../../Exercism/fsharp/queen-attack/QueenAttack.fs" Line="7" Column="25" />
+      <File FileName="../../Exercism/fsharp/two-fer/TwoFerTests.fs" Line="17" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HelloSquare" expanded="True">
+            <Node name="HelloSquare" expanded="True">
+              <Node name="Program.fs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.HelloSquare PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
