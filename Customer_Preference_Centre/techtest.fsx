@@ -48,12 +48,3 @@ let getCustomersForDate (date:DateTime) =
 
 
 
-let getContactableForDate date customers =
-        customers
-        |> Set.filter (canContactCustomerOnDate date)
-
-    let nintyDayPreferenceReport (date: DateTime) customers =
-        let days = nextNintyDays date
-        days
-        |> Seq.map (fun d -> getContactableForDate d customers)
-        |> Seq.zip days
