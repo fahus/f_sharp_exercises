@@ -1,8 +1,9 @@
 ﻿<Properties StartupConfiguration="{3D1CBFE3-6816-468D-B450-ACA392737D64}|Default">
   <MonoDevelop.Ide.ItemProperties.FizzBuzz FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FizzBuzz/FizzBuzz.fs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../queen-attack/QueenAttackTests.fs">
     <Files>
-      <File FileName="FizzBuzz/Program.fs" Line="13" Column="1" />
+      <File FileName="FizzBuzz/FizzBuzz.fs" Line="4" Column="61" />
+      <File FileName="../../queen-attack/QueenAttackTests.fs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

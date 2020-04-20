@@ -2,7 +2,7 @@
 
 open System
 
-[1..100]
+[1..15]
 |> List.map (fun x -> 
 match (x % 3, x % 5) with 
 | (0,0) -> "FizzBuzz"

@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{49E34E96-8857-4675-8925-C9C8D125E88A}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../f_sharp_exercises/f_sharp_practice/fsharp_practice/fsharp_practice/fsharp_practice/exercises9.03.20.fs">
+    <Files>
+      <File FileName="../../../f_sharp_exercises/f_sharp_practice/fsharp_practice/fsharp_practice/fsharp_practice/exercises.fs 9.03.20" Line="18" Column="1" />
+      <File FileName="Raindrops.fs" Line="35" Column="12" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Raindrops" expanded="True">
+            <Node name="Raindrops" expanded="True">
+              <Node name="Raindrops.fs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Raindrops PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
