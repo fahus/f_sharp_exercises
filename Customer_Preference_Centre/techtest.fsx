@@ -20,12 +20,10 @@ let contactCustomer (date: DateTime) (customer:Customer) =
 
 
 let customerX = {CustomerID= "X"; CustomerPreferences= DayOfTheWeek DayOfWeek.Monday}
-let customerY = {CustomerID= "X"; CustomerPreferences= DayOfTheMonth 6}
+let customerY = {CustomerID= "X"; CustomerPreferences= DayOfTheMonth 7}
 let today = DateTime.Now 
 
 let result = contactCustomer today customerY
-
-
 
 
 let CustomerA = {CustomerID ="A"; CustomerPreferences = Everyday}
@@ -33,17 +31,20 @@ let CustomerB = {CustomerID ="B"; CustomerPreferences = DayOfTheMonth 6 }
 let CustomerC = {CustomerID = "C"; CustomerPreferences = DayOfTheWeek DayOfWeek.Friday }
 
 
-
 let customers = [CustomerA ; CustomerB; CustomerC]
 
-let getCustomersForDate (date:DateTime) = 
+let getCustomersForDate (date:DateTime) (customers:Customer list) = 
     customers
-    |> List.filter(fun c -> true)
+    |> List.filter(fun c -> contactCustomer date c)
+
+
+let report (date:DateTime) (selectedCustomers: Customer list) =
+    printfn "%A" date selectedCustomers
     
 [1..90] 
 |> List.map(fun x -> DateTime.Now.AddDays (float x) )
-|> List.map(fun x -> getCustomersForDate x , x )
-|> List.iter(fun (customers,date) -> printfn "%A" date)
+|> List.map(fun x -> getCustomersForDate x customers, x )
+|> List.iter(fun (selectedCustomers,date) -> report date selectedCustomers)
 
 
 
