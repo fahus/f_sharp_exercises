@@ -2,7 +2,6 @@
 open System
 
 
-
 type CustomerPreferences = 
 | Never 
 | Everyday
@@ -12,6 +11,7 @@ type CustomerPreferences =
 type Customer =
     {CustomerID : string
      CustomerPreferences: CustomerPreferences} 
+
 
  
 
@@ -25,7 +25,7 @@ let contactCustomer (date: DateTime) (customer:Customer) =
 
 
 let CustomerA = {CustomerID = "A"; CustomerPreferences = Everyday}
-let CustomerB = {CustomerID ="B"; CustomerPreferences = DayOfTheMonth 6 }
+let CustomerB = {CustomerID ="B"; CustomerPreferences = DayOfTheMonth 15 }
 let CustomerC = {CustomerID = "C"; CustomerPreferences = DayOfTheWeek DayOfWeek.Friday }
 
 
@@ -35,18 +35,18 @@ let getCustomersForDate (date:DateTime) (customers:Customer list) =
     customers
     |> List.filter(fun c -> contactCustomer date c)
 
+    
 
-
-
-//let format (date:DateTime) = date.ToString("ddd.yy.MM.dd")
+let format (date:DateTime) = date.ToString("ddd dd-MMM-yyyy")
+new DateTime(2019,08,11) |> format
 
 let report (date:DateTime) (selectedCustomers: Customer list) =
-    //customers
-    //|> List.iter(fun (contactCustomer,date) -> c date
-
-    printfn "%A:%A" date selectedCustomers
-
-
+    let customerIDs =
+        selectedCustomers |> List.map(fun c -> c.CustomerID)
+    let formattedDate = format date
+    let formattedCustomerID = String.Join(" , " , customerIDs)
+    printfn "%s  %s " formattedDate formattedCustomerID
+    
     
 [1..90] 
 |> List.map(fun x -> DateTime.Now.AddDays (float x) )
