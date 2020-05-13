@@ -11,9 +11,8 @@ type CustomerPreferences =
 type Customer =
     {CustomerID : string
      CustomerPreferences: CustomerPreferences} 
+     
 
-
- 
 
 let contactCustomer (date: DateTime) (customer:Customer) =
     match customer.CustomerPreferences with
@@ -38,7 +37,7 @@ let getCustomersForDate (date:DateTime) (customers:Customer list) =
     
 
 let format (date:DateTime) = date.ToString("ddd dd-MMM-yyyy")
-new DateTime(2019,08,11) |> format
+//new DateTime(2019,08,11) |> format
 
 let report (date:DateTime) (selectedCustomers: Customer list) =
     let customerIDs =
@@ -52,7 +51,3 @@ let report (date:DateTime) (selectedCustomers: Customer list) =
 |> List.map(fun x -> DateTime.Now.AddDays (float x) )
 |> List.map(fun x -> getCustomersForDate x customers, x )
 |> List.iter(fun (selectedCustomers,date) -> report date selectedCustomers)
-
-
-
-

@@ -57,11 +57,14 @@ let customers = [CustomerA ; CustomerB; CustomerC]
 ninetyDayReport customers
 
 
-(*
 let input = """A,a,2
 B,a,28
 C,b,Mon Wed Fri
 D,c
 E,d
-F,b,Tue """
-*)
+ """
+
+
+let splitInput = input.Split ',' 
+
+let output = splitInput |> List.ofArray
