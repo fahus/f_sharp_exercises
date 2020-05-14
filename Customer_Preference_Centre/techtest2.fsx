@@ -57,14 +57,31 @@ let customers = [CustomerA ; CustomerB; CustomerC]
 ninetyDayReport customers
 
 
-let input = """A,a,2
-B,a,28
-C,b,Mon Wed Fri
-D,c
-E,d
- """
+
+let input = """A,DayOfTheMonth,2
+B,DayOfTheMonth,28
+C,DayOfTheWeek,Mon Wed Fri
+D,Everday
+E,Never"""
 
 
-let splitInput = input.Split ',' 
 
-let output = splitInput |> List.ofArray
+let splitInput = input.Split '\n' |> List.ofArray 
+
+
+let customerAString = "A,DayOfTheMonth,2" 
+customerAString.Split ','
+
+//[|"A"; "DayOfTheMonth"; "2"|]
+
+let makeCustomerFromList (input:string list) = 
+    let CustomerD = {CustomerID = "D"; CustomerPreferences = Everyday}
+    CustomerD
+
+
+
+
+  
+
+
+
