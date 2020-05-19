@@ -59,10 +59,9 @@ ninetyDayReport customers
 
 
 let input = """A,DayOfTheMonth,2
-B,DayOfTheMonth,28
-C,DayOfTheWeek,Mon Wed Fri
-D,Everday
-E,Never"""
+B,DayOfTheWeek,Mon Wed Fri
+C,Everday
+D,Never"""
 
 
 
@@ -70,18 +69,33 @@ let splitInput = input.Split '\n' |> List.ofArray
 
 
 let customerAString = "A,DayOfTheMonth,2" 
-customerAString.Split ','
+let result =  customerAString.Split ',' |> List.ofArray
+
 
 //[|"A"; "DayOfTheMonth"; "2"|]
 
 let makeCustomerFromList (input:string list) = 
-    let CustomerD = {CustomerID = "D"; CustomerPreferences = Everyday}
-    CustomerD
+    let customerID =  
+         List.head input 
+    let preferences = List.tail input
+    let specificPreference = List.head preferences
+    let detail = List.tryItem 1 preferences
+    let mypreference = matchPreferenceWithDU
+
+    {CustomerID = customerID; CustomerPreferences = mypreference } 
+
+let matchPreferenceWithDU (specificPreference:string) (detail:string option) = 
+    match specificPreference,detail with
+    |"DayOfTheMonth",Some d -> System.Convert.ToInt32(d) |> DayOfTheMonth
+    |"DayOfTheWeek", Some d-> DayOfWeek.Parse(d) |> DayOfTheWeek
+    |"Everyday", None -> Everyday
+    |"Never", None-> Never 
+
+let mypreference = matchPreferenceWithDU
+//let customerpreference = matchPreferenceWithDU
 
 
 
-
-  
 
 
 
