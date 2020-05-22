@@ -5,7 +5,7 @@ type CustomerPreferences =
 | Never 
 | Everyday
 | DayOfTheMonth of int
-| DayOfTheWeek of DayOfWeek
+| DaysOfTheWeek of DayOfWeek list
 
 type Customer =
     {CustomerID : string
@@ -17,7 +17,7 @@ let contactCustomer (date: DateTime) (customer:Customer) =
     match customer.CustomerPreferences with
     | Never -> false
     | Everyday -> true
-    | DayOfTheWeek dayOfWeek -> if dayOfWeek = date.DayOfWeek then true else false
+    | DaysOfTheWeek daysOfWeek ->  daysOfWeek |> List.exists(fun day -> day = date.DayOfWeek ) 
     | DayOfTheMonth x -> if x = date.Day then true else false 
     
 
@@ -50,11 +50,11 @@ let ninetyDayReport input  =
  
 let CustomerA = {CustomerID = "A"; CustomerPreferences = Everyday}
 let CustomerB = {CustomerID ="B"; CustomerPreferences = DayOfTheMonth 15 }
-let CustomerC = {CustomerID = "C"; CustomerPreferences = DayOfTheWeek DayOfWeek.Friday }
+let CustomerC = {CustomerID = "C"; CustomerPreferences = DaysOfTheWeek [DayOfWeek.Friday] }
 
 
 let customers = [CustomerA ; CustomerB; CustomerC]
-ninetyDayReport customers
+//ninetyDayReport customers
 
 
 
@@ -65,34 +65,44 @@ D,Never"""
 
 
 
-let splitInput = input.Split '\n' |> List.ofArray 
+//let splitInput = input.Split '\n' |> List.ofArray 
 
 
-let customerAString = "A,DayOfTheMonth,2" 
-let result =  customerAString.Split ',' |> List.ofArray
+//let customerAString = "A,DayOfTheMonth,2" 
+//let result =  customerAString.Split ',' |> List.ofArray
 
 
 //[|"A"; "DayOfTheMonth"; "2"|]
 
-let makeCustomerFromList (input:string list) = 
+let matchPreferenceWithDU (specificPreference:string) (detail:string option) = 
+    match specificPreference,detail with
+    |"DayOfTheMonth",Some d -> System.Convert.ToInt32(d) |> DayOfTheMonth
+    |"DayOfTheWeek", Some d-> DayOfWeek.Parse(d) |> DaysOfTheWeek
+    |"Everyday", None -> Everyday
+    |"Never", None-> Never 
+
+
+let makeCustomerFromList (input:string list) :Customer = 
     let customerID =  
          List.head input 
     let preferences = List.tail input
     let specificPreference = List.head preferences
     let detail = List.tryItem 1 preferences
-    let mypreference = matchPreferenceWithDU
+    let customerPreference = matchPreferenceWithDU specificPreference detail
+    {CustomerID = customerID; CustomerPreferences = customerPreference }
 
-    {CustomerID = customerID; CustomerPreferences = mypreference } 
+let inputCustomers :Customer list = 
+    input.Split '\n' 
+    |> List.ofArray
+    |> List.map(fun s -> s.Split ',' |> List.ofArray)
+    |> List.map(fun s -> makeCustomerFromList s )
+   
+ninetyDayReport inputCustomers
 
-let matchPreferenceWithDU (specificPreference:string) (detail:string option) = 
-    match specificPreference,detail with
-    |"DayOfTheMonth",Some d -> System.Convert.ToInt32(d) |> DayOfTheMonth
-    |"DayOfTheWeek", Some d-> DayOfWeek.Parse(d) |> DayOfTheWeek
-    |"Everyday", None -> Everyday
-    |"Never", None-> Never 
 
-let mypreference = matchPreferenceWithDU
-//let customerpreference = matchPreferenceWithDU
+//stringsplit 
+//list.map
+
 
 
 
