@@ -7,6 +7,7 @@ type CustomerPreferences =
 | DayOfTheMonth of int
 | DaysOfTheWeek of DayOfWeek list
 
+
 type Customer =
     {CustomerID : string
      CustomerPreferences: CustomerPreferences} 
@@ -58,10 +59,10 @@ let customers = [CustomerA ; CustomerB; CustomerC]
 
 
 
-let input = """A,DayOfTheMonth,2
-B,DayOfTheWeek,Mon Wed Fri
-C,Everday
-D,Never"""
+//let input = """A,DayOfTheMonth,2
+//B,DayOfTheWeek,Mon Wed Friday
+//C,Everyday
+//D,Never"""
 
 
 
@@ -74,20 +75,40 @@ D,Never"""
 
 //[|"A"; "DayOfTheMonth"; "2"|]
 
+
+let convertAbreviation (dayOfWeekAbreviated:string)   =
+    match dayOfWeekAbreviated with 
+    |"Mon"| "Monday" -> DayOfWeek.Monday     
+    |"Tue" -> DayOfWeek.Tuesday
+    |"Wed" -> DayOfWeek.Wednesday
+    |"Thu" -> DayOfWeek.Thursday  
+    |"Fri"|"Friday" -> DayOfWeek.Friday 
+    |"Sat" -> DayOfWeek.Saturday
+    |"Sun" -> DayOfWeek.Sunday
+    |_ -> sprintf "Could not find day of week : %s" dayOfWeekAbreviated |> failwith
+
+
+
+
+
 let matchPreferenceWithDU (specificPreference:string) (detail:string option) = 
     match specificPreference,detail with
     |"DayOfTheMonth",Some d -> System.Convert.ToInt32(d) |> DayOfTheMonth
-    |"DayOfTheWeek", Some d-> DayOfWeek.Parse(d) |> DaysOfTheWeek
+    |"DayOfTheWeek", Some d-> d.Split ' ' |> List.ofArray |> List.map ( fun w -> convertAbreviation(w)) |> DaysOfTheWeek 
     |"Everyday", None -> Everyday
     |"Never", None-> Never 
+    | _-> sprintf "Could not find specific preference : %s" specificPreference |> failwith 
 
 
+let input = (System.IO.File.ReadAllText("/Users/fhussein/f_sharp_exercises_github/Customer_Preference_Centre/input.txt"))
+ 
+   
 let makeCustomerFromList (input:string list) :Customer = 
     let customerID =  
-         List.head input 
-    let preferences = List.tail input
-    let specificPreference = List.head preferences
-    let detail = List.tryItem 1 preferences
+         List.head input //B
+    let preferences = List.tail input //DOW ; M W F
+    let specificPreference = List.head preferences //DOW
+    let detail = List.tryItem 1 preferences //M W F
     let customerPreference = matchPreferenceWithDU specificPreference detail
     {CustomerID = customerID; CustomerPreferences = customerPreference }
 
@@ -96,12 +117,9 @@ let inputCustomers :Customer list =
     |> List.ofArray
     |> List.map(fun s -> s.Split ',' |> List.ofArray)
     |> List.map(fun s -> makeCustomerFromList s )
-   
+
 ninetyDayReport inputCustomers
 
-
-//stringsplit 
-//list.map
 
 
 
